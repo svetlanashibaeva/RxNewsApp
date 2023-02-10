@@ -27,12 +27,8 @@ extension NewsEndpoint: EndpointProtocol {
     var params: [String : String] {
         switch self {
         case let .getTopHeadlines(page):
-            let params = ["category": "entertainment", "page": "\(page)", "pageSize": "20"]
+            let params = ["apiKey": "fb58c0e298be462692fbcae752d5fd8d", "country": "us", "category": "entertainment", "page": "\(page)", "pageSize": "20"]
             return params
         }
-    }
-    
-    var headers: [String : String] {
-        ["X-Api-Key": "fb58c0e298be462692fbcae752d5fd8d"]
     }
 }

@@ -6,8 +6,15 @@
 //
 
 import Foundation
+import ObjectMapper
 
-struct ApiError: Decodable {
+struct ApiError: ImmutableMappable {
+
     let code: String
     let message: String
+    
+    init(map: Map) throws {
+        code = try map.value("code")
+        message = try map.value("message")
+    }
 }

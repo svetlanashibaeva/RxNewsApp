@@ -11,6 +11,7 @@ class NewsListViewController: UIViewController {
 
     private let customView = NewsListView()
     
+    let service = NewsService()
     override func loadView() {
         view = customView
     }
@@ -18,7 +19,17 @@ class NewsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        customView.tableView.dataSource = self
+        
+        service.getTopHeadlines(page: 1) { result in
+            switch result {
+            case let .success(article):
+                print(article)
+            default:
+                return 
+            }
+        }
+        
+        
     }
 
 

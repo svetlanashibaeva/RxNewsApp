@@ -11,7 +11,11 @@ struct NewsCellModel {
     
     let cellIdentifier = "NewsCell"
     
+//    let article = Article
+    
     func configureCell(_ cell: UITableViewCell) {
         guard let cell = cell as? NewsCell else { return }
+        
+//        cell.titleLabel = article
     }
 }
