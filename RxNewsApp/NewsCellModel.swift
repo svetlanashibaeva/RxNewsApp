@@ -19,5 +19,6 @@ struct NewsCellModel: TableCellModelProtocol {
         cell.titleLabel.text = article.title
         cell.sourceLabel.text = article.sourceName
         cell.dateLabel.text = article.formattedDate
+        cell.imageNewsView.set(imageURL: article.urlToImage)
     }
 }

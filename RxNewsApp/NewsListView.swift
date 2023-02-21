@@ -28,7 +28,7 @@ class NewsListView: UIView {
 private extension NewsListView {
     
     func configure() {
-        tableView.backgroundColor = .red
+        
     }
     
     func addSubviews() {

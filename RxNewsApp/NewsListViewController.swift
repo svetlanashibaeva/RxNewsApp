@@ -27,7 +27,6 @@ class NewsListViewController: UIViewController, RxDataSourcesProtocol {
         
         configureUI()
         configureRx()
-
     }
 }
 
@@ -85,6 +84,7 @@ private extension NewsListViewController {
     
     func configureUI() {
         customView.tableView.register(NewsCell.self, forCellReuseIdentifier: NewsCell.reuseId)
+        title = "Top news"
     }
 }
 

@@ -24,6 +24,7 @@
 		D3A35660299518510050A31D /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A3565F299518510050A31D /* ApiService.swift */; };
 		D3A356622995190F0050A31D /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A356612995190F0050A31D /* NewsService.swift */; };
 		D3B4D272299E536F00C6186E /* RxDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B4D271299E536E00C6186E /* RxDataSourceProtocol.swift */; };
+		D3B4D27429A4CE9700C6186E /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B4D27329A4CE9700C6186E /* WebImageView.swift */; };
 		EDE9E0065EAFC5BCAAE32769 /* Pods_RxNewsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F260A9F02D85CEFE0265D2B /* Pods_RxNewsApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		D3A3565F299518510050A31D /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		D3A356612995190F0050A31D /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 		D3B4D271299E536E00C6186E /* RxDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxDataSourceProtocol.swift; sourceTree = "<group>"; };
+		D3B4D27329A4CE9700C6186E /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		D83C1AF4A8266E45F1177D30 /* Pods-RxNewsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxNewsApp.debug.xcconfig"; path = "Target Support Files/Pods-RxNewsApp/Pods-RxNewsApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 				D3A356562994D4FD0050A31D /* NewsListView.swift */,
 				D3A356582994DB530050A31D /* NewsCell.swift */,
 				D3A3565A2994E83F0050A31D /* NewsCellModel.swift */,
+				D3B4D27329A4CE9700C6186E /* WebImageView.swift */,
 				D3A3565C2994E9480050A31D /* TableCellModelProtocol.swift */,
 				D3B4D271299E536E00C6186E /* RxDataSourceProtocol.swift */,
 				D3A356402993ADA70050A31D /* Assets.xcassets */,
@@ -263,6 +266,7 @@
 				D3A3564E2993B4E40050A31D /* NewsEndpoint.swift in Sources */,
 				D3A3563C2993AD9F0050A31D /* NewsListViewController.swift in Sources */,
 				D3A35660299518510050A31D /* ApiService.swift in Sources */,
+				D3B4D27429A4CE9700C6186E /* WebImageView.swift in Sources */,
 				D3A356382993AD9F0050A31D /* AppDelegate.swift in Sources */,
 				D3A3565B2994E83F0050A31D /* NewsCellModel.swift in Sources */,
 				D3A356622995190F0050A31D /* NewsService.swift in Sources */,
