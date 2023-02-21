@@ -32,7 +32,7 @@ class NewsCell: UITableViewCell {
 
 private extension NewsCell {
     func configure() {
-        
+        backgroundColor = .blue
         titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         titleLabel.textColor = .white
         titleLabel.numberOfLines = 2
@@ -47,7 +47,7 @@ private extension NewsCell {
     }
     
     func addSubviews() {
-        [imageNewsView, titleLabel, dateLabel, sourceLabel].forEach(addSubview)
+        [imageNewsView, titleLabel, dateLabel, sourceLabel].forEach(contentView.addSubview)
     }
     
     func makeConstraints() {

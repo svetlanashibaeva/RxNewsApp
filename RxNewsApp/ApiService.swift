@@ -7,54 +7,37 @@
 
 import Foundation
 import ObjectMapper
+import RxSwift
+import RxCocoa
 
 class ApiService {
     
-    func requestItems<T: BaseMappable>(with endpoint: EndpointProtocol, responseKey: String? = nil, completion: @escaping (Result<[T], Error>) -> ()) {
-        request(with: endpoint) { json, error in
-
-            if let error = error {
-                return completion(.failure(error))
+    func requestItems<T: BaseMappable>(with endpoint: EndpointProtocol, responseKey: String? = nil) -> Observable<[T]> {
+        
+        request(endpoint: endpoint)
+            .map { json -> [T] in
+                let objects: Any?
+                
+                if let responseKey = responseKey {
+                    let json = (json as? [String : Any]) ?? [:]
+                    objects = json[responseKey]
+                } else {
+                    objects = json
+                }
+                
+                guard let parsedObjects = Mapper<T>(context: nil).mapArray(JSONObject: objects) else {
+                    throw MyError.parseError
+                }
+                return parsedObjects
             }
-            
-            let objects: Any?
-            
-            if let responseKey = responseKey {
-                let json = (json as? [String : Any]) ?? [:]
-                objects = json[responseKey]
-            } else {
-                objects = json
-            }
-            
-            if let parsedObject = Mapper<T>(context: nil).mapArray(JSONObject: objects) {
-                completion(.success(parsedObject))
-            } else {
-                completion(.failure(MyError.parseError))
-            }
-        }
     }
     
-    private func request(with endpoint: EndpointProtocol, completion: @escaping (Any?, Error?) -> ()) {
+    private func request(endpoint: EndpointProtocol) -> Observable<Any> {
         guard let url = buildUrl(with: endpoint) else {
-            return completion(nil, MyError.urlError)
+            return .error(MyError.urlError)
         }
         
-        URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
-            if let data = data {
-                let JSON = try? JSONSerialization.jsonObject(
-                    with: data,
-                    options: .allowFragments
-                )
-                if let httpResponse = response as? HTTPURLResponse, (200..<300).contains(httpResponse.statusCode) {
-                    completion(JSON, nil)
-                } else {
-                    guard let apiError = Mapper<ApiError>(context: nil).map(JSONObject: JSON) else {
-                        return completion(nil, MyError.unknownError)
-                    }
-                    completion(nil, MyError.customError(error: apiError.message))
-                }
-            }
-        }.resume()
+        return URLSession.shared.rx.json(url: url)
     }
     
     private func buildUrl(with endpoint: EndpointProtocol) -> URL? {

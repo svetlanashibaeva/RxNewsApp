@@ -6,16 +6,16 @@
 //
 
 import Foundation
+import RxSwift
 
 class NewsService {
     
     private let apiService = ApiService()
     
-    func getTopHeadlines(page: Int, completion: @escaping (Result<[Article], Error>) -> ()) {
+    func getTopHeadlines(page: Int) -> Observable<[Article]> {
         apiService.requestItems(
             with: NewsEndpoint.getTopHeadlines(page: page),
-            responseKey: "articles",
-            completion: completion
+            responseKey: "articles"
         )
     }
 }

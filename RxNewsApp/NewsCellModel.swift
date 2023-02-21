@@ -7,15 +7,17 @@
 
 import UIKit
 
-struct NewsCellModel {
+struct NewsCellModel: TableCellModelProtocol {
     
-    let cellIdentifier = "NewsCell"
+    let cellIdentifier = NewsCell.reuseId
     
-//    let article = Article
+    let article: Article
     
     func configureCell(_ cell: UITableViewCell) {
         guard let cell = cell as? NewsCell else { return }
         
-//        cell.titleLabel = article
+        cell.titleLabel.text = article.title
+        cell.sourceLabel.text = article.sourceName
+        cell.dateLabel.text = article.formattedDate
     }
 }

@@ -1,5 +1,5 @@
 //
-//  NewsModel.swift
+//  Article.swift
 //  RxNewsApp
 //
 //  Created by Света Шибаева on 08.02.2023.
@@ -8,7 +8,7 @@
 import Foundation
 import ObjectMapper
 
-struct Article {
+struct Article: Equatable {
     let title: String?
     let url: String
     let urlToImage: String?
