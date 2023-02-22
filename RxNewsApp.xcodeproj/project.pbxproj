@@ -108,7 +108,7 @@
 		D3A356362993AD9F0050A31D /* RxNewsApp */ = {
 			isa = PBXGroup;
 			children = (
-				D3A3565E2995183F0050A31D /* Services */,
+				D3B4D27D29A6372A00C6186E /* Service */,
 				D3A356512993B6F50050A31D /* Models */,
 				D3A356372993AD9F0050A31D /* AppDelegate.swift */,
 				D3A356392993AD9F0050A31D /* SceneDelegate.swift */,
@@ -133,15 +133,6 @@
 				D3A356542993B72E0050A31D /* MyError.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		D3A3565E2995183F0050A31D /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				D3A3565F299518510050A31D /* ApiService.swift */,
-				D3A356612995190F0050A31D /* NewsService.swift */,
-			);
-			name = Services;
 			sourceTree = "<group>";
 		};
 		D3B4D27729A5FA0D00C6186E /* WebView */ = {
@@ -179,6 +170,15 @@
 				D3B4D271299E536E00C6186E /* RxDataSourceProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D3B4D27D29A6372A00C6186E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D3A3565F299518510050A31D /* ApiService.swift */,
+				D3A356612995190F0050A31D /* NewsService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
