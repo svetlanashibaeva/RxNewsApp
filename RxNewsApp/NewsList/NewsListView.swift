@@ -15,7 +15,6 @@ class NewsListView: UIView {
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         
-        configure()
         addSubviews()
         makeConstraints()
     }
@@ -26,13 +25,8 @@ class NewsListView: UIView {
 }
 
 private extension NewsListView {
-    
-    func configure() {
-        
-    }
-    
+
     func addSubviews() {
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(tableView)
     }
     

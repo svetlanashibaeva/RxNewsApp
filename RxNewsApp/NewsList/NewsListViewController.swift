@@ -80,6 +80,24 @@ private extension NewsListViewController {
                 .bind(to: customView.tableView.rx.items(dataSource: reloadDataSource()))
                 .disposed(by: disposeBag)
         
+        customView.tableView.rx.itemSelected
+            .bind(with: customView.tableView) { tableView, indexPath in
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        customView.tableView.rx.modelSelected(TableCellModelProtocol.self)
+            .compactMap { cellModel -> NewsWebViewController? in
+                guard let article = (cellModel as? NewsCellModel)?.article else { return nil }
+                
+                let controller = NewsWebViewController()
+                controller.url = URL(string: article.url)
+                return controller
+            }
+            .bind(with: self) { base, webVC in
+                base.navigationController?.pushViewController(webVC, animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
     func configureUI() {
